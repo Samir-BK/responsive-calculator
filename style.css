@@ -1,0 +1,93 @@
+/* Custom CSS for calculator grid and transitions */
+:root {
+  --bg-light: #f3f4f6;
+  --bg-dark: #1f2937;
+  --text-light: #111827;
+  --text-dark: #f9fafb;
+  --main-bg: white;
+  --main-text: #1f2937;
+  --button-bg: #e5e7eb;
+  --button-hover: #d1d5db;
+  --operator-bg: #f59e0b;
+  --operator-hover: #d97706;
+  --screen-bg: #eff6ff;
+  --screen-text: #1f2937;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  --main-bg: #1f2937;
+  --main-text: #f9fafb;
+  --button-bg: #374151;
+  --button-hover: #4b5563;
+  --operator-bg: #f59e0b;
+  --operator-hover: #d97706;
+  --screen-bg: #374151;
+  --screen-text: #f9fafb;
+  --shadow-color: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-light);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dark body {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+.calculator {
+  background-color: var(--main-bg);
+  box-shadow: 0 10px 15px -3px var(--shadow-color),
+    0 4px 6px -2px var(--shadow-color);
+  transition: background-color 0.3s;
+}
+
+.calculator-screen {
+  background-color: var(--screen-bg);
+  color: var(--screen-text);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.calc-button {
+  background-color: var(--button-bg);
+  color: var(--main-text);
+  transition: all 0.1s ease-in-out;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calc-button:hover:not(.operator):not(.equals) {
+  background-color: var(--button-hover);
+}
+
+.operator,
+.equals {
+  background-color: var(--operator-bg);
+  color: white;
+  font-weight: 600;
+}
+
+.operator:hover,
+.equals:hover {
+  background-color: var(--operator-hover);
+}
+
+.equals {
+  grid-column: span 2;
+}
+
+/* Responsive Grid for Buttons */
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem; /* 8px */
+  padding: 1rem; /* 16px */
+}

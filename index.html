@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <!-- Calculator Container -->
+    <div class="calculator w-full max-w-sm rounded-xl overflow-hidden p-0">
+        
+        <!-- Header / Theme Toggle -->
+        <div class="flex justify-between items-center p-4">
+            <h1 class="text-xl font-bold">Calc App</h1>
+            <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-150">
+                <!-- SVG for Sun/Moon (adjusts automatically via CSS) -->
+                <svg class="w-6 h-6 text-gray-800 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Sun (Light Mode) -->
+                    <path class="dark:hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    <!-- Moon (Dark Mode) -->
+                    <path class="hidden dark:block" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Display Screen -->
+        <div class="calculator-screen h-32 flex flex-col justify-around items-end p-4 rounded-lg mx-4 mb-4">
+            <!-- Previous Operand and Operation -->
+            <div data-previous-operand class="text-xl opacity-70 break-all h-8 overflow-hidden"></div>
+            <!-- Current Operand (Result) -->
+            <div data-current-operand class="text-5xl font-light break-all h-14 overflow-hidden" style="line-height: 1.2;">0</div>
+        </div>
+
+        <!-- Button Grid -->
+        <div class="button-grid">
+            
+            <!-- First Row -->
+            <button data-all-clear class="calc-button bg-red-500 hover:bg-red-600 text-white font-semibold">AC</button>
+            <button data-delete class="calc-button bg-red-400 hover:bg-red-500 text-white font-semibold">DEL</button>
+            <button data-operation class="calc-button operator">%</button>
+            <button data-operation class="calc-button operator">÷</button>
+            
+            <!-- Second Row -->
+            <button data-number class="calc-button">7</button>
+            <button data-number class="calc-button">8</button>
+            <button data-number class="calc-button">9</button>
+            <button data-operation class="calc-button operator">*</button>
+            
+            <!-- Third Row -->
+            <button data-number class="calc-button">4</button>
+            <button data-number class="calc-button">5</button>
+            <button data-number class="calc-button">6</button>
+            <button data-operation class="calc-button operator">-</button>
+            
+            <!-- Fourth Row -->
+            <button data-number class="calc-button">1</button>
+            <button data-number class="calc-button">2</button>
+            <button data-number class="calc-button">3</button>
+            <button data-operation class="calc-button operator">+</button>
+            
+            <!-- Fifth Row -->
+            <button data-number class="calc-button">0</button>
+            <button data-number class="calc-button">.</button>
+            <button data-equals class="calc-button equals">=</button>
+        </div>
+        
+    </div>
+
+<script src="calculator.js"></script>
+</body>
+</html>
